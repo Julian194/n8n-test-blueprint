@@ -56,9 +56,7 @@ Create a test file in `src/tests/`:
 import { describe, expect, it } from "vitest";
 import { callWorkflow, toSnapshot } from "../../client.ts";
 
-const SKIP = !process.env.RUN_N8N_TESTS;
-
-describe.skipIf(SKIP)("My Workflow", () => {
+describe("My Workflow", () => {
   it("returns expected output", async () => {
     const res = await callWorkflow("my-workflow", {
       input: "value",
