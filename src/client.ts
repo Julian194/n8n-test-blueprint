@@ -1,7 +1,5 @@
 import config from "../n8n.config.ts";
 
-export type WorkflowKey = keyof typeof config.workflows;
-
 export interface CallResult<T = unknown> {
 	status: number;
 	body: T | null;
@@ -11,11 +9,10 @@ export interface CallResult<T = unknown> {
  * Call a workflow via the test harness
  */
 export async function callWorkflow<T = unknown>(
-	workflowKey: WorkflowKey,
+	workflowKey: string,
 	data: Record<string, unknown>,
 ): Promise<CallResult<T>> {
-	const workflow =
-		config.workflows[workflowKey as keyof typeof config.workflows];
+	const workflow = config.workflows[workflowKey];
 	if (!workflow) {
 		throw new Error(`Unknown workflow: ${workflowKey}`);
 	}

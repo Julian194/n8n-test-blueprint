@@ -1,5 +1,17 @@
 // Configure your n8n workspace here
-export default {
+
+interface WorkflowConfig {
+	id: string;
+	name: string;
+}
+
+interface Config {
+	workspace: string;
+	testHarnessUrl: string;
+	workflows: Record<string, WorkflowConfig>;
+}
+
+const config: Config = {
 	// Your n8n workspace name (used with n8ncli)
 	workspace: "your-workspace",
 
@@ -14,4 +26,6 @@ export default {
 		// 	name: "My Workflow",
 		// },
 	},
-} as const;
+};
+
+export default config;
