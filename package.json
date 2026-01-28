@@ -1,0 +1,22 @@
+{
+	"name": "n8n-workflow-tests",
+	"private": true,
+	"type": "module",
+	"scripts": {
+		"test": "vitest run",
+		"test:watch": "vitest",
+		"test:n8n": "RUN_N8N_TESTS=1 vitest run",
+		"test:n8n:update": "RUN_N8N_TESTS=1 vitest run -u",
+		"typecheck": "tsc --noEmit",
+		"lint": "biome check .",
+		"format": "biome format --write .",
+		"precommit": "npm run typecheck && npm run lint"
+	},
+	"devDependencies": {
+		"@biomejs/biome": "^1.9.0",
+		"@types/node": "^22.0.0",
+		"tsx": "^4.0.0",
+		"typescript": "^5.7.0",
+		"vitest": "^3.0.0"
+	}
+}
