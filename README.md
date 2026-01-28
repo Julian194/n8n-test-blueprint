@@ -72,19 +72,19 @@ describe.skipIf(SKIP)("My Workflow", () => {
 
 ```bash
 # Run all tests
-RUN_N8N_TESTS=1 npm test
+npm test
 
 # Update snapshots
-RUN_N8N_TESTS=1 npm run test:n8n:update
+npm run test:update
 ```
 
 ## Commands
 
 | Command | Description |
 |---------|-------------|
-| `npm test` | Run tests (skips n8n tests without env var) |
-| `npm run test:n8n` | Run tests with n8n workflows |
-| `npm run test:n8n:update` | Update snapshots |
+| `npm test` | Run all tests |
+| `npm run test:update` | Update snapshots |
+| `npm run test:watch` | Watch mode |
 | `npm run typecheck` | TypeScript type checking |
 | `npm run lint` | Biome linting |
 | `npm run format` | Auto-fix formatting |
@@ -94,7 +94,6 @@ RUN_N8N_TESTS=1 npm run test:n8n:update
 
 | Variable | Purpose |
 |----------|---------|
-| `RUN_N8N_TESTS=1` | Enable n8n workflow tests |
 | `RUN_PAID_API_TESTS=1` | Enable tests that hit paid external APIs |
 
 ## Project Structure
